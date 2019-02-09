@@ -59,18 +59,24 @@ plt.close()
 
 print('\n There are 6 classes, which cumulative frequency is lower than 15000')
 
-#d
-#
-# ax=figure.add_subplot(n,1,1)
-# ax.boxplot(purchase,vert=False)
-# p_25=round(np.percentile(purchase,25),2)
-# p_50=round(np.percentile(purchase,50),2)
-# p_75=round(np.percentile(purchase,75),2)
-#
-# plt.text(p_25, 0.85, "$Q_{1}=$"+ str(p_25), fontsize=12)
-# plt.text(p_50, 0.75, "$Q_{2}=$"+ str(p_50), fontsize=12)
-# plt.text(p_75, 0.65, "$Q_{3}=$"+ str(p_75), fontsize=12)
-#
+#d.4
+
+figure=plt.figure(figsize=(8,30))
+n=7
+
+ax=figure.add_subplot(n,1,1)
+ax.boxplot(averagePrice,vert=False)
+p_25=round(np.percentile(averagePrice,25),2)
+p_50=round(np.percentile(averagePrice,50),2)
+p_75=round(np.percentile(averagePrice,75),2)
+Q1="$Q_{1}=$"+ str(p_25)
+plt.text(p_25, 0.85, "$Q_{1}=$"+ str(p_25), fontsize=12)
+plt.text(p_50, 0.75, "$Q_{2}=$"+ str(p_50), fontsize=12)
+plt.text(p_75, 0.65, "$Q_{3}=$"+ str(p_75), fontsize=12)
+plt.title("Boxplot of Avocado Price Distribution")
+plt.xlabel("Avocado Price")
+plt.show()
+plt.close()
 
 #e
 
@@ -129,6 +135,7 @@ table = pd.DataFrame({"Number of avocado sold":sold, "Relative frequency": rel_f
 table.to_excel("Quizz_Python_Probability_and_Statistics_FDT.xlsx", float_format="%.3f")
 
 #5
+
 
 #6
 
