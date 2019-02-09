@@ -6,8 +6,8 @@ import math
 
 data= pd.read_csv(r"avocado.csv")
 averagePrice = data['AveragePrice']
-sold = data['Total Bags']
 pdf = bkPDF.PdfPages('Quiz_Python_Probability_and_Statistics_Plots.pdf')
+cumAverage=[averagePrice<1500]
 
 # a.1
 fig_a = plt.figure(figsize=(8, 30))
@@ -56,20 +56,25 @@ plt.close()
 
 #b3
 
+
 print('\n There are 6 classes, which cumulative frequency is lower than 15000')
 
-#d
-#
-# ax=figure.add_subplot(n,1,1)
-# ax.boxplot(purchase,vert=False)
-# p_25=round(np.percentile(purchase,25),2)
-# p_50=round(np.percentile(purchase,50),2)
-# p_75=round(np.percentile(purchase,75),2)
-#
-# plt.text(p_25, 0.85, "$Q_{1}=$"+ str(p_25), fontsize=12)
-# plt.text(p_50, 0.75, "$Q_{2}=$"+ str(p_50), fontsize=12)
-# plt.text(p_75, 0.65, "$Q_{3}=$"+ str(p_75), fontsize=12)
-#
+#d Bloxplot
+figure=plt.figure(figsize=(8,30))
+n=7
+ax=figure.add_subplot(n,1,1)
+ax.boxplot(averagePrice,vert=False)
+p_25=round(np.percentile(averagePrice,25),2)
+p_50=round(np.percentile(averagePrice,50),2)
+p_75=round(np.percentile(averagePrice,75),2)
+#d1
+plt.title("Boxplot of Avocado Price Distribution")
+#d2
+plt.xlabel("Avocado Price")
+#d3
+plt.text(p_25, 0.85, "$Q_{1}=$"+ str(p_25), fontsize=12)
+plt.text(p_50, 0.75, "$Q_{2}=$"+ str(p_50), fontsize=12)
+plt.text(p_75, 0.65, "$Q_{3}=$"+ str(p_75), fontsize=12)
 
 #e
 
@@ -109,22 +114,4 @@ plt.close()
 pdf.close()
 
 # 3
-soi=sold
-number_of_classes=int(round(math.log(soi.size)/math.log(2)))
-freq,bins,patches=plt.hist(soi,bins=number_of_classes,edgecolor="black")
-rel_freq=freq/soi.size
-class_range=[]
-upper_class=[]
-middle_class=[]
-for i in range(int(bins.size)-1):
-    lower=bins[1]
-    upper=bins[i+1]
-    upper_class.append(upper)
-    middle_class.append((upper+lower)/2)
-    class_range.append("{:0.3f}".format(lower)+"-"+"{:0.3f}".format(upper))
-cumFreq, trash1, trash2 = plt.hist(soi,bins=number_of_classes,edgecolor="black",cumulative=True)
-
-table = pd.DataFrame({"Number of avocado sold":sold, "Relative frequency": rel_freq, "Cumulative frequency of sold avocados": cumFreq, "Mark of class": middle_class}, index=class_range)
-
-#4
-table.to_excel("Quizz_Python_Probability_and_Statistics_FDT.xlsx", float_format="%.3f")
+table = pd.DataFrame({"Number of avocado sold"})
