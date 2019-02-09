@@ -7,6 +7,7 @@ import math
 data= pd.read_csv(r"avocado.csv")
 averagePrice = data['AveragePrice']
 sold = data['Total Bags']
+Total_bags = data['Total Bags']
 pdf = bkPDF.PdfPages('Quiz_Python_Probability_and_Statistics_Plots.pdf')
 
 # a.1
@@ -85,8 +86,6 @@ for i in range(int(bins.size)-1):
 
 R_class=bins[1]-bins[0]
 mcfp=middle_class
-print(middle_class[-1])
-print(R_class)
 mcfp.insert(int(len(middle_class)),middle_class[-1]+R_class)
 mcfp.insert(0,middle_class[0]-R_class)
 
@@ -128,3 +127,31 @@ table = pd.DataFrame({"Number of avocado sold":sold, "Relative frequency": rel_f
 
 #4
 table.to_excel("Quizz_Python_Probability_and_Statistics_FDT.xlsx", float_format="%.3f")
+
+#5
+
+#6
+
+std = np.std(averagePrice)
+mean = np.mean(averagePrice)
+var = np.var(averagePrice)
+med = np.median(averagePrice)
+
+print("The mean price of Avocado is: ",mean)
+print("The variance is: ",var)
+print("The median price of Avocado is: ",med)
+print("The standard deviation of the price of the Avocado is: ",std)
+
+#7
+
+stdt = np.std(Total_bags)
+meant = np.mean(Total_bags)
+vart = np.var(Total_bags)
+medt = np.median(Total_bags)
+
+print("\nThe mean price of Total Bags is: ",meant)
+print("The variance is: ",vart)
+print("The median price of Total Bags is: ",medt)
+print("The standard deviation of the price of the Total Bags is: ",stdt)
+
+
