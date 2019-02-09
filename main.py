@@ -125,4 +125,6 @@ for i in range(int(bins.size)-1):
 cumFreq, trash1, trash2 = plt.hist(soi,bins=number_of_classes,edgecolor="black",cumulative=True)
 
 table = pd.DataFrame({"Number of avocado sold":sold, "Relative frequency": rel_freq, "Cumulative frequency of sold avocados": cumFreq, "Mark of class": middle_class}, index=class_range)
+
+#4
 table.to_excel("Quizz_Python_Probability_and_Statistics_FDT.xlsx", float_format="%.3f")
