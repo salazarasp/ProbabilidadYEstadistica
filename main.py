@@ -35,6 +35,28 @@ print('The n1% of the data lies in the range(', (mean-std), ',', (mean+std), ') 
 print('The n2% of the data lies in the range(', (mean-2*std), ',', (mean+2*std), ') according to the Empirical rule')
 print('The n3% of the data lies in the range(', (mean-3*std), ',', (mean+3*std), ') according to the Empirical rule')
 
+#b
+
+fig_b = plt.figure(figsize=(8, 30))
+
+#b1
+
+plt.title("Cumulative histogram of Avocado prize distribution")
+
+cumfreq,trash1,trash2=plt.hist(averagePrice,bins=number_of_classes,edgecolor="black",cumulative=True)
+
+#b2
+
+plt.ylabel('Cumulative frequency of sold Avocados')
+plt.xlabel('Avocado Price')
+pdf.savefig(fig_b)
+plt.show()
+plt.close()
+
+#b3
+
+print('\n There are 6 classes, which cumulative frequency is lower than 15000')
+
 #e
 
 middle_class=[]
@@ -69,4 +91,8 @@ pdf.savefig(fig_e)
 plt.show()
 plt.close()
 
+# 2
 pdf.close()
+
+# 3
+table = pd.DataFrame({"Number of avocado sold"})
