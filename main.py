@@ -69,12 +69,21 @@ ax.boxplot(averagePrice,vert=False)
 p_25=round(np.percentile(averagePrice,25),2)
 p_50=round(np.percentile(averagePrice,50),2)
 p_75=round(np.percentile(averagePrice,75),2)
-Q1="$Q_{1}=$"+ str(p_25)
 plt.text(p_25, 0.85, "$Q_{1}=$"+ str(p_25), fontsize=12)
 plt.text(p_50, 0.75, "$Q_{2}=$"+ str(p_50), fontsize=12)
 plt.text(p_75, 0.65, "$Q_{3}=$"+ str(p_75), fontsize=12)
+
+iqr = (p_75) - (p_25)
+
+lower = (p_25) - (1.5 * (iqr))
+upper = (p_75) + (1.5 * (iqr))
+
 plt.title("Boxplot of Avocado Price Distribution")
 plt.xlabel("Avocado Price")
+
+print("The lower fence is lw:", lower)
+print("The uper fence is up:", upper)
+
 plt.show()
 plt.close()
 
