@@ -1,4 +1,5 @@
 # Javier Mondragon Martin del Campo A01365137
+# Alfredo Salazar Peralta A01366438
 
 import pandas as pd
 import matplotlib.pyplot as plt
